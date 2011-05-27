@@ -357,7 +357,6 @@ self.window.rootViewController = self.splitViewController;
 		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:splitViewController</string>
 		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:rootViewController</string>
 		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:detailViewController</string>
-		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:coreData</string>
 		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.m:synthesize:splitViewController=_splitViewController</string>
 		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.m:synthesize:rootViewController=_rootViewController</string>
 		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.m:synthesize:detailViewController=_detailViewController</string>
@@ -738,6 +737,7 @@ if (![[self fetchedResultsController] performFetch:&amp;error]) {
 					</dict>
 					<key>Nodes</key>
 					<array>
+						<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:coreData</string>					
 						<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.m:import:DetailViewController.h</string>
 						<string>DetailViewController.h:methods:rootViewController</string>
 						<string>DetailViewController.h:methods:insertNewObject</string>

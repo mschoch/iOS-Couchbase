@@ -204,8 +204,7 @@ self.window.rootViewController = self.navigationController;
 	<key>Nodes</key>
 	<array>
 		<string>en.lproj/MainWindow.xib</string>
-		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:navigationController</string>
-		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:coreData</string>		
+		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:navigationController</string>		
 		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.m:synthesize:navigationController=_navigationController</string>
 		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.m:dealloc:_navigationController</string>
 		<string>RootViewController.h:comments</string>
@@ -486,6 +485,7 @@ self.navigationItem.rightBarButtonItem = addButton;
 					</dict>
 					<key>Nodes</key>
 					<array>
+						<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:coreData</string>					
 						<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.m:import:RootViewController.h</string>
 						<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.m:awakeFromNib</string>
 						<string>RootViewController.h:methods:coreData</string>

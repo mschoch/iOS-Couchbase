@@ -23,12 +23,25 @@
 	<key>Kind</key>
 	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
 	<key>Nodes</key>
-	<array>
-		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:coreData</string>
+	<array>	
 		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.m:applicationdidFinishLaunchingWithOptions:makeKeyAndVisible</string>
 	</array>
 	<key>Options</key>
 	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>coreData</string>
+			<key>Units</key>
+			<dict>
+				<key>true</key>
+				<dict>
+					<key>Nodes</key>
+					<array>
+						<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:coreData</string>			
+					</array>
+				</dict>
+			</dict>
+		</dict>
 		<dict>
 			<key>Identifier</key>
 			<string>universalDeviceFamily</string>

@@ -132,8 +132,7 @@ self.window.rootViewController = self.mainViewController;
 	<array>
 		<string>en.lproj/MainWindow.xib</string>
 		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:class:MainViewController</string>
-		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:mainViewController</string>
-		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:coreData</string>		
+		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:mainViewController</string>		
 		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.m:import:MainViewController.h</string>
 		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.m:synthesize:mainViewController=_mainViewController</string>
 		<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.m:dealloc:_mainViewController</string>
@@ -188,6 +187,7 @@ self.window.rootViewController = self.mainViewController;
 					</dict>
 					<key>Nodes</key>
 					<array>
+						<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.h:couchmethods:coreData</string>					
 						<string>___PACKAGENAMEASIDENTIFIER___AppDelegate.m:applicationdidFinishLaunchingWithOptions:mainViewController</string>
 						<string>MainViewController.h:methods:managedObjectContext</string>
 						<string>MainViewController.m:synthesize:managedObjectContext=_managedObjectContext</string>

@@ -177,7 +177,7 @@
 /* Begin PBXLegacyTarget section */
 		E06D7A74139AE3C0006F92DE /* iOSCouchbase.zip */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = Scripts/createuserPackage.sh;
+			buildArgumentsString = Scripts/createUserPackage.sh;
 			buildConfigurationList = E06D7A75139AE3C0006F92DE /* Build configuration list for PBXLegacyTarget "iOSCouchbase.zip" */;
 			buildPhases = (
 			);

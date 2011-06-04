@@ -13,9 +13,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E0F5ADDD1399A0AF006A8AFC"
-               BuildableName = "Couchbase User Package"
-               BlueprintName = "Couchbase User Package"
+               BlueprintIdentifier = "E06D7A74139AE3C0006F92DE"
+               BuildableName = "iOSCouchbase.zip"
+               BlueprintName = "iOSCouchbase.zip"
                ReferencedContainer = "container:Couchbase.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

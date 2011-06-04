@@ -6,21 +6,6 @@
 	objectVersion = 45;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		E0F5ADDD1399A0AF006A8AFC /* Couchbase User Package */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = E0F5ADE01399A0AF006A8AFC /* Build configuration list for PBXAggregateTarget "Couchbase User Package" */;
-			buildPhases = (
-				E0F5ADE21399A0D2006A8AFC /* Create Universal Library */,
-				E0F5ADE31399A14B006A8AFC /* Create iOS Couchbase Zip */,
-			);
-			dependencies = (
-			);
-			name = "Couchbase User Package";
-			productName = "Couchbase User Package";
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		035638C91350096B00D2AF03 /* Couchbase.h in Headers */ = {isa = PBXBuildFile; fileRef = 79C3C6F4131F011A00C8B96D /* Couchbase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		035638CB1350096B00D2AF03 /* Couchbase.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C3C6F5131F011A00C8B96D /* Couchbase.m */; };
@@ -59,6 +44,7 @@
 		79F5314313208D3700038ADD /* Couchbase.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Couchbase.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F5314413208D3700038ADD /* CouchbaseBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CouchbaseBundle-Info.plist"; sourceTree = "<group>"; };
 		BC4A607D1324C493003F32D3 /* libCouchbase-iphoneos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCouchbase-iphoneos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E06D7A79139AE4CC006F92DE /* createUserPackage.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = createUserPackage.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +102,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				E06D7A78139AE4CC006F92DE /* Scripts */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Libraries */,
@@ -151,6 +138,14 @@
 			name = Libraries;
 			sourceTree = "<group>";
 		};
+		E06D7A78139AE4CC006F92DE /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				E06D7A79139AE4CC006F92DE /* createUserPackage.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -178,6 +173,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
+
+/* Begin PBXLegacyTarget section */
+		E06D7A74139AE3C0006F92DE /* iOSCouchbase.zip */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = Scripts/createuserPackage.sh;
+			buildConfigurationList = E06D7A75139AE3C0006F92DE /* Build configuration list for PBXLegacyTarget "iOSCouchbase.zip" */;
+			buildPhases = (
+			);
+			buildToolPath = /bin/sh;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = iOSCouchbase.zip;
+			passBuildSettingsInEnvironment = 1;
+			productName = iOSCouchbase.zip;
+		};
+/* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
 		035638C71350096B00D2AF03 /* Couchbase-iphonesimulator */ = {
@@ -255,7 +267,7 @@
 				BC4A607C1324C493003F32D3 /* Couchbase-iphoneos */,
 				035638C71350096B00D2AF03 /* Couchbase-iphonesimulator */,
 				79F5314213208D3700038ADD /* Couchbase.bundle */,
-				E0F5ADDD1399A0AF006A8AFC /* Couchbase User Package */,
+				E06D7A74139AE3C0006F92DE /* iOSCouchbase.zip */,
 			);
 		};
 /* End PBXProject section */
@@ -273,37 +285,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		E0F5ADE21399A0D2006A8AFC /* Create Universal Library */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Create Universal Library";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "lipo -create -output ${BUILT_PRODUCTS_DIR}/libCouchbase.a ${BUILT_PRODUCTS_DIR}/libCouchbase-iphoneos.a ${BUILT_PRODUCTS_DIR}/libCouchbase-iphonesimulator.a";
-		};
-		E0F5ADE31399A14B006A8AFC /* Create iOS Couchbase Zip */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Create iOS Couchbase Zip";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd ${BUILT_PRODUCTS_DIR}/;\nzip -r iOSCouchbase.zip include/Couchbase.h Couchbase.bundle libCouchbase.a";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		035638CA1350096B00D2AF03 /* Sources */ = {
@@ -476,17 +457,45 @@
 			};
 			name = Release;
 		};
-		E0F5ADDE1399A0AF006A8AFC /* Debug */ = {
+		E06D7A76139AE3C0006F92DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		E0F5ADDF1399A0AF006A8AFC /* Release */ = {
+		E06D7A77139AE3C0006F92DE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -529,11 +538,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E0F5ADE01399A0AF006A8AFC /* Build configuration list for PBXAggregateTarget "Couchbase User Package" */ = {
+		E06D7A75139AE3C0006F92DE /* Build configuration list for PBXLegacyTarget "iOSCouchbase.zip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E0F5ADDE1399A0AF006A8AFC /* Debug */,
-				E0F5ADDF1399A0AF006A8AFC /* Release */,
+				E06D7A76139AE3C0006F92DE /* Debug */,
+				E06D7A77139AE3C0006F92DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

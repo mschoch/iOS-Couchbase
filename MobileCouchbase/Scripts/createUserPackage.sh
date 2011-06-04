@@ -29,8 +29,11 @@ xcodebuild -workspace "${SRCROOT}/../Couchbase.xcworkspace/" -scheme Couchbase-i
 xcodebuild -workspace "${SRCROOT}/../Couchbase.xcworkspace/" -scheme Couchbase.bundle -configuration "${CONFIGURATION}" -sdk "${SDK_TO_BUILD}" -arch "${ARCH}" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO BUILD_DIR="${BUILD_DIR}" BUILD_ROOT="${BUILD_ROOT}"
 
 
-if [ $ACTION = "build" ]
-then
+case $ACTION in
+# NOTE: for some reason, it gets set to "" rather than "build" when
+# doing a build.
+"")
+
 #now build fat binary
 lipo -create -output ${BUILT_PRODUCTS_DIR}/libCouchbase.a ${BUILT_PRODUCTS_DIR}/libCouchbase-iphoneos.a ${BUILT_PRODUCTS_DIR}/libCouchbase-iphonesimulator.a
 
@@ -38,11 +41,11 @@ lipo -create -output ${BUILT_PRODUCTS_DIR}/libCouchbase.a ${BUILT_PRODUCTS_DIR}/
 cd ${BUILT_PRODUCTS_DIR}/;
 zip -r iOSCouchbase.zip include/Couchbase.h Couchbase.bundle libCouchbase.a
 
-elif [ $ACTION = "clean" ]
-then
+;;
 
+"clean")
 # -f is required because it seems to call clean for all configurations (even ones you haven't built)
 rm -f ${BUILT_PRODUCTS_DIR}/libCouchbase.a
 rm -f ${BUILT_PRODUCTS_DIR}/iOSCouchbase.zip
-
-fi
+;;
+esac

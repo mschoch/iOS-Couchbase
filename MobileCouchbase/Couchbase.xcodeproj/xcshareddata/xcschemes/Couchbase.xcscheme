@@ -47,34 +47,6 @@
                ReferencedContainer = "container:Couchbase.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "79F5314213208D3700038ADD"
-               BuildableName = "Couchbase.bundle"
-               BlueprintName = "Couchbase.bundle"
-               ReferencedContainer = "container:Couchbase.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E0F5ADDD1399A0AF006A8AFC"
-               BuildableName = "Couchbase User Package"
-               BlueprintName = "Couchbase User Package"
-               ReferencedContainer = "container:Couchbase.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

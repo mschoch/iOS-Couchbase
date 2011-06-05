@@ -40,6 +40,10 @@ Each library has a target designed to build the static library.  On its own, Xco
 The createUniversalLibrary.sh script is run after the libary has already been built.  The first thing the script determines is which platform you built for (device or simulator).  It then determines the correct parameters to build the library for the other platform and invokes the xcodebuild commandline.  NOTE: since it is the same target we started in, the script will be invoked recursively and has logic to handle this appropriately.  Once this has completed, and we are in the top-level invocation of the script, we now have 2 libraries built, one for (armv6,armv7) and the other for (i386).  Finally, we invoke lipo to merge the libraries into a single fat binary.
 
 Along the way there are some file rename operations so that Xcode sees the result of lipo (and not the individual libraries) as its final build product.  This is important because the final fat binary is what we want to use when linking with other projects in the workspace.
+
+### Known Issues
+
+* -iphoneos.a and -iphonesimulator.a files get left behind in build products dir and are not properly removed during a "clean" operation
  
 ### Observations
 

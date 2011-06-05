@@ -17,12 +17,19 @@ This branch is intended to illustrate one way iOS-Couchbase could move towards a
 
 ### Taking a look
 
+#### Get a copy of this code
+
      git clone git@github.com:mschoch/iOS-Couchbase.git
      cd iOS-Couchbase
      git checkout -b everything-is-fat origin/everything-is-fat
      git submodule init
      git submodule update
      open Couchbase.xcworkspace
+
+#### Build
+
+* Select "Couchbase User Package" with any platform from the Scheme popup
+* Press Run, this will build everything
 
 ### Details of the approach taken to building fat binaries
 

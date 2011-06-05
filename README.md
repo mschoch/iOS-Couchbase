@@ -10,9 +10,9 @@ This branch is intended to illustrate one way iOS-Couchbase could move towards a
 * iMonkey now has a single target which produces a fat libiMonkey.a
 * iErl14 now has a single target which produces a fat libiErl14.a
 * Couchbase has 3 targets
-** One which produces a fat libCouchbase.a
-** The second produces Couchbase.bundle (unchanged)
-** The third which produces the Couchbase User Package (zip)
+ * One which produces a fat libCouchbase.a
+ * The second produces Couchbase.bundle (unchanged)
+ * The third which produces the Couchbase User Package (zip)
 * iMoneky, iErl14, and Couchbase fat binary targets are all created using a variation on the script described here:  http://stackoverflow.com/questions/3520977/build-fat-static-library-device-simulator-using-xcode-and-sdk-4
 
 ### Taking a look

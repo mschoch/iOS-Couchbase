@@ -4,8 +4,7 @@ This branch is intended to illustrate one way iOS-Couchbase could move towards a
 
 ### Summary of Changes
 
-* Demo.app has been removed
-* All libraries ONLY required for the Demo.app have been removed
+* Demo.app and it's non-couchbase dependencies have been removed
 * Git Submodules for Vendor libraries also point to my clone
 * openssl/lib now contains pre-built fat libraries as well as existing ones
 * iMonkey now has a single target which produces a fat libiMonkey.a

@@ -1,6 +1,3 @@
-[submodule "Demo/Vendor/trundle"]
-	path = Demo/Vendor/trundle
-	url = https://github.com/schwa/trundle.git
 [submodule "MobileCouchbase/Vendor/iMonkey"]
 	path = MobileCouchbase/Vendor/iMonkey
 	url = https://github.com/couchbaselabs/iMonkey.git

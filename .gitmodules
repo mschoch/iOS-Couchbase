@@ -1,9 +1,9 @@
 [submodule "MobileCouchbase/Vendor/iMonkey"]
 	path = MobileCouchbase/Vendor/iMonkey
-	url = https://github.com/couchbaselabs/iMonkey.git
+	url = https://github.com/mschoch/iMonkey.git
 [submodule "MobileCouchbase/Vendor/iErl14"]
 	path = MobileCouchbase/Vendor/iErl14
-	url = https://github.com/couchbaselabs/iErl14.git
+	url = https://github.com/mschoch/iErl14.git
 [submodule "MobileCouchbase/Vendor/ios-openssl"]
 	path = MobileCouchbase/Vendor/ios-openssl
-	url = https://github.com/couchbaselabs/ios-openssl.git
+	url = https://github.com/mschoch/ios-openssl.git

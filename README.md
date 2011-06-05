@@ -24,7 +24,7 @@ This branch is intended to illustrate one way iOS-Couchbase could move towards a
      git submodule update
      open Couchbase.xcworkspace
 
-### Details of how fat binaries are built
+### Details of the approach taken to building fat binaries
 
 Producing fat binaries in Xcode 4 presents some problems because the notion of the "active architecture" gets somewhat locked in by the scheme you've selected to build.  The approach taken in this repository to work around the problem is as follows:
 

@@ -1,69 +1,52 @@
-## Mobile Couchbase for iOS
+## Mobile Couchbase for iOS - Everything is Fat Branch
 
-Apache CouchDB on iOS provides a simple way to sync your application data across devices and provide cloud backup of user data. Unlike other cloud solutions, the data is hosted on the device by Couchbase Mobile, so even when the network is down or slow (airplane, subway, backyard) the application is responsive to users.
+This branch is intended to illustrate one way iOS-Couchbase could move towards a single target for each library, creating fat binaries (armv6, armv7, i386).
 
-What this means for you:
+### Summary of Changes
 
-* You can embed the rock solid distributed database, Mobile Couchbase, on your iOS device.
-* Your iOS apps can use Apache CouchDB's well-proven synchronization technology.
-* If you <3 CouchApps, you can deploy them as iOS apps.
+* Demo.app has been removed
+* All libraries ONLY required for the Demo.app have been removed
+* Git Submodules for Vendor libraries also point to my clone
+* openssl/lib now contains pre-built fat libraries as well as existing ones
+* iMonkey now has a single target which produces a fat libiMonkey.a
+* iErl14 now has a single target which produces a fat libiErl14.a
+* Couchbase has 3 targets
+** One which produces a fat libCouchbase.a
+** The second produces Couchbase.bundle (unchanged)
+** The third which produces the Couchbase User Package (zip)
+* iMoneky, iErl14, and Couchbase fat binary targets are all created using a variation on the script described here:  http://stackoverflow.com/questions/3520977/build-fat-static-library-device-simulator-using-xcode-and-sdk-4
 
-### Beta Release
+### Taking a look
 
-If you just want to get started, jump to **Building the Demo App**. We've recently moved to Xcode 4, so for best results you should be on Xcode 4 also.
+     git clone git@github.com:mschoch/iOS-Couchbase.git
+     cd iOS-Couchbase
+     git checkout -b everything-is-fat origin/everything-is-fat
+     git submodule init
+     git submodule update
+     open Couchbase.xcworkspace
 
-The biggest thing we need help with is size optimization - currently a Release build adds about 15 MB to your application. We are targeting 5 MB for our initial round of optimizations. It can definitely go lower but that work might take longer.
+### Details of how fat binaries are built
 
-## Join us
+Producing fat binaries in Xcode 4 presents some problems because the notion of the "active architecture" gets somewhat locked in by the scheme you've selected to build.  The approach taken in this repository to work around the problem is as follows:
 
-There is a [Google Group here for Mobile Couchbase](https://groups.google.com/group/mobile-couchbase). Let's talk about how to optimize the Erlang build, what the best Cocoa APIs are for CouchDB, how to take advantage of replication on mobile devices. It'll be fun.
+Each library has a target designed to build the static library.  On its own, Xcode would either build this for (armv6,armv7) or (i386) depending on whether or not you selected a device or a simulator.  Instead, we add a "Run Script" phase at the end of the build.  This script is stored in a file named "Scripts/createUniversalLibrary.sh".
 
+The createUniversalLibrary.sh script is run after the libary has already been built.  The first thing the script determines is which platform you built for (device or simulator).  It then determines the correct parameters to build the library for the other platform and invokes the xcodebuild commandline.  NOTE: since it is the same target we started in, the script will be invoked recursively and has logic to handle this appropriately.  Once this has completed, and we are in the top-level invocation of the script, we now have 2 libraries built, one for (armv6,armv7) and the other for (i386).  Finally, we invoke lipo to merge the libraries into a single fat binary.
 
-## Getting Started
+Along the way there are some file rename operations so that Xcode sees the result of lipo (and not the individual libraries) as its final build product.  This is important because the final fat binary is what we want to use when linking with other projects in the workspace.
+ 
+### Observations
 
-These instructions assume you are familiar with how to make an iPhone app because you've done it a lot already.
+#### Pros
 
-If you have questions or get stuck or just want to say hi, email <mobile@couchbase.com> and let us know that you're interested in Couchbase on mobile.
+* Removing the Demo and associated libraries makes the repo feel lighter
+* Reducing the number of targets/schemes in the workspace makes it more approachable
 
-## Using Mobile Couchbase
+#### Cons
 
-For details on how to use Mobile Couchbase in your own apps see [doc/using_mobile_couchbase.md](https://github.com/couchbaselabs/iOS-Couchbase/blob/master/doc/using_mobile_couchbase.md)
+* Each target takes longer to run now because its building for multiple architectures
+* The reliance on the scripting makes the whole thing more fragile
 
+### Discussion
 
-## Building the Demo App
-
-The following instructions can be used to build Mobile Couchbase for devices and simulators, using Xcode 4.
-
-### Get the main repository
-
-    git clone git://github.com/couchbaselabs/iOS-Couchbase.git
-
-### Get the submodules
-
-    cd iOS-Couchbase/
-    git submodule init
-    git submodule update
-
-### Open the Xcode workspace
-
-    open Couchbase.xcworkspace
-
-### To build and run the Demo App in the simulator:
-
-* Select "CouchDemo-iphonesimulator | iPhone 4.3 Simulator" from the popup
-* Click the Run button
-
-### To build and run the Demo App on a device:
-
-* Make sure a properly provisioned device is attached
-* Select "CouchDemo-iphoneos | DeviceName(osversion)" from the popup
-* Click the Run button
-
-
-## License
-
-Portions under Apache, Erlang, and other licenses.
-
-The overall package is released under the Apache license, 2.0.
-
-Copyright 2011, Couchbase, Inc.
+Please share your thoughts on this approach on the <a href="https://groups.google.com/group/mobile-couchbase">Google Group for Mobile Couchbase</a>

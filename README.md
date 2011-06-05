@@ -55,4 +55,4 @@ Along the way there are some file rename operations so that Xcode sees the resul
 
 ### Discussion
 
-Please share your thoughts on this approach on the <a href="https://groups.google.com/group/mobile-couchbase">Google Group for Mobile Couchbase</a>
+Please share your thoughts on this approach or propose alternate approaches on the <a href="https://groups.google.com/group/mobile-couchbase">Google Group for Mobile Couchbase</a>

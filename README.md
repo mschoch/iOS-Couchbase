@@ -2,6 +2,8 @@
 
 This branch is intended to illustrate one way iOS-Couchbase could move towards a single target for each library, creating fat binaries (armv6, armv7, i386).
 
+<a href="http://en.wikipedia.org/wiki/Fat_binary">More information about fat binaries</a>
+
 ### Summary of Changes
 
 * Demo.app and it's non-couchbase dependencies have been removed

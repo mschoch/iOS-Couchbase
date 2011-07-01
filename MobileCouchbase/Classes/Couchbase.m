@@ -177,6 +177,7 @@ void* erlang_thread(void* data) {
 	while(![NSFm fileExistsAtPath:uriPath]) {
 		usleep(250000);
 	}
+    [NSFm release];
 	usleep(100000);	
 	NSString *rawUriString = [NSString stringWithContentsOfFile:uriPath encoding:NSASCIIStringEncoding error:NULL];
 	NSArray *components = [rawUriString componentsSeparatedByString:@"\n"];

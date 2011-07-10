@@ -41,6 +41,7 @@ void* erlang_thread(void* data) {
 		"-eval", "application:start(couch).",
 		"-root", erl_root, "-couch_ini",
 		inipath, inipath2};
+    free(data); //balances malloc in startCouchbase
 
 	erl_start(10, erlang_args);
 	return NULL;
@@ -55,7 +56,7 @@ void* erlang_thread(void* data) {
 	NSString* myPath = [mainBundle pathForResource:@"Couchbase" ofType:@"bundle"];
 	NSLog(@"my bundle path: %@", myPath);
 
-	char app_root[1024];
+    char *app_root = malloc(1024 * sizeof(char)); //will be freed in erlang_thread
 	char erl_root[1024];
 	char bindir[1024];
 	
